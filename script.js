@@ -22,9 +22,10 @@ let deleteH;
 
 if (cTime.getHours() <= 9) deleteH = 9;
 else if (cTime.getHours() >= 10 && cTime.getHours() <= 21) deleteH = 21;
-else deleteH = 11;
+else if (cTime.getHours() === 22) deleteH = 11;
+else if (cTime.getHours() === 23) deleteH = 13;
 
-let cHours = (deleteH - cTime.getHours()) * 3600;
+let cHours = Math.abs(cTime.getHours() - deleteH) * 3600;
 let cMinutes = (59 - cTime.getMinutes()) * 60;
 let cSeconds = 60 - cTime.getSeconds();
 

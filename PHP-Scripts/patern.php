@@ -4,7 +4,7 @@ $paternName = "#<p class=\"product-name\">(?P<name>.+)<\/p>#";
 $paternOldPrice = "#<div class=\"old-price\">(?P<old_price>[0-9 ]+,[0-9]{2}).+<\/div>#";
 $paternNewPrice = "#<div class=\"new-price\">(?P<new_price>[0-9 ]+,[0-9]{2}).+<\/div>#";
 $paternSoldInfo = "#<div class=\"sold-info\">(?P<sold_info>\w+)<\/div>#";
-$paternPhoto = "#<img class=\"img-responsive center-block\" src=\"(?P<photo>.+)\"#";
+$paternPhoto = "#<img class=\"img-responsive center-block\" src=\"(?P<photo>.+\.PNG)#";
 $paternLeft = "#<div class=\"pull-left\">Pozostało: <strong>(?P<left>.+)<\/strong>#";
 $paternSold = "#<div class=\"pull-right\">Sprzedano już: <strong>(?P<sold>.+)<\/strong>#";
 

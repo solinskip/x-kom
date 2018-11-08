@@ -114,6 +114,9 @@ $i = 1;
         let name = $(this).closest('tr').find('td:eq(1)').text();
         let img = $(this).find('img');
 
+        name = $('<div/>').text(name).html();
+        name = name.replace(/"/, "&quot;");
+
         if ($(img).attr('src') === '#') {
             $.ajax({
                 url: "PHP-Scripts/getUrlImage.php",

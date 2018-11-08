@@ -33,7 +33,6 @@ $i = 1;
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <script type="text/javascript" src="script.js"></script>
     <script src="jQuery/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
@@ -93,7 +92,8 @@ $i = 1;
                         <td><?= $i++ ?></td>
                         <td><?= $tResult['name'] ?></td>
                         <td class="pl-4 photo" style="position: relative">
-                            <i class="far fa-image fa-2x"></i><img width="250px" style="display: none" src="<?= $tResult['photo'] ?>">
+                            <i class="far fa-image fa-2x"></i><img width="250px" style="display: none"
+                                                                   src="#">
                         </td>
                         <td><?= $tResult['old_price'] ?> zł</td>
                         <td><?= $tResult['new_price'] ?> zł</td>
@@ -108,3 +108,20 @@ $i = 1;
 </div>
 </body>
 </html>
+<script type="text/javascript" src="script.js"></script>
+<script type="application/javascript">
+    $('td.photo').mouseenter(function () {
+        let name = $(this).closest('tr').find('td:eq(1)').text();
+        let img = $(this).find('img');
+
+        if ($(img).attr('src') === '#') {
+            $.ajax({
+                url: "PHP-Scripts/getUrlImage.php",
+                type: "post",
+                data: {name: name},
+            }).then(function (data) {
+                $(img).attr('src', JSON.parse(data).url['photo']);
+            });
+        }
+    });
+</script>

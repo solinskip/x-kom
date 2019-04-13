@@ -1,10 +1,17 @@
 <?php
 
+/** @var array $mName */
+/** @var array $mPhoto */
+/** @var array $mLeft */
+/** @var array $mSold */
+/** @var array $mSoldInfo */
+
 require_once 'PHP-Scripts/getPage.php';
 $content = getPage('https://www.x-kom.pl');
-require_once 'PHP-Scripts/patern.php';
+require_once 'PHP-Scripts/pattern.php';
 require_once 'PHP-Scripts/database.php';
 
+/** for get text from file */
 //$content1 = fopen('template-site-product.txt', 'r+');
 //$content = fread($content1, filesize("template-site-product.txt"));
 //fclose($content1);
@@ -41,8 +48,8 @@ $i = 1;
     <div class="row">
         <div class="col-md-4 border-right">
             <div class="text-center display-4">Aktualna oferta</div>
-            <div class="text-center my-3"><img src="<?= $mPhoto['photo'][0] ?>"></div>
-            <div class="text-center h5"><?= $mNname['name'][0] ?></div>
+            <div class="text-center my-3"><img src="<?= $mPhoto['photo'][0] ?>" alt=""></div>
+            <div class="text-center h5"><?= $mName['name'][0] ?></div>
             <div class="pt-4 text-center">
                 <div class="d-inline pt-2 pr-2 text-right old-price align-text-bottom"><?= $mOldPrice ?> zł</div>
                 <div class="d-inline new-price"><?= $mNewPrice ?> zł</div>
@@ -92,8 +99,8 @@ $i = 1;
                         <td><?= $i++ ?></td>
                         <td><?= $tResult['name'] ?></td>
                         <td class="pl-4 photo" style="position: relative">
-                            <i class="far fa-image fa-2x"></i><img width="250px" style="display: none"
-                                                                   src="#">
+                            <i class="far fa-image fa-2x"></i>
+                            <img width="250px" style="display: none" src="#" alt="">
                         </td>
                         <td><?= $tResult['old_price'] ?> zł</td>
                         <td><?= $tResult['new_price'] ?> zł</td>

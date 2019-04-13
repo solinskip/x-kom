@@ -4,5 +4,5 @@ return [
     'host' => 'localhost',
     'user' => 'root',
     'password' => '',
-    'database' => 'xkom'
+    'database' => 'x-kom'
 ];
